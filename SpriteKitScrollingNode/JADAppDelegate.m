@@ -7,6 +7,7 @@
 //
 
 #import "JADAppDelegate.h"
+#import "JADViewController.h"
 
 @implementation JADAppDelegate
 
@@ -16,6 +17,14 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    JADViewController *vc = [[JADViewController alloc] init];
+    
+    _window.rootViewController = vc;
+    
+    
+    
+    
     return YES;
 }
 

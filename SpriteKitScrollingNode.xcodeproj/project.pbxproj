@@ -19,6 +19,9 @@
 		BD72024719832DCE00DB4AB1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD72022F19832DCE00DB4AB1 /* UIKit.framework */; };
 		BD72024F19832DCE00DB4AB1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BD72024D19832DCE00DB4AB1 /* InfoPlist.strings */; };
 		BD72025119832DCE00DB4AB1 /* SpriteKitScrollingNodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BD72025019832DCE00DB4AB1 /* SpriteKitScrollingNodeTests.m */; };
+		BD72025C19832E1F00DB4AB1 /* JADSKScrollingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BD72025B19832E1F00DB4AB1 /* JADSKScrollingNode.m */; };
+		BD72025F19832E7A00DB4AB1 /* JADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD72025E19832E7A00DB4AB1 /* JADViewController.m */; };
+		BD72026219832F8E00DB4AB1 /* JADMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BD72026119832F8E00DB4AB1 /* JADMainScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,12 @@
 		BD72024C19832DCE00DB4AB1 /* SpriteKitScrollingNodeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpriteKitScrollingNodeTests-Info.plist"; sourceTree = "<group>"; };
 		BD72024E19832DCE00DB4AB1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BD72025019832DCE00DB4AB1 /* SpriteKitScrollingNodeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteKitScrollingNodeTests.m; sourceTree = "<group>"; };
+		BD72025A19832E1F00DB4AB1 /* JADSKScrollingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JADSKScrollingNode.h; path = ../JADSKScrollingNode.h; sourceTree = "<group>"; };
+		BD72025B19832E1F00DB4AB1 /* JADSKScrollingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JADSKScrollingNode.m; path = ../JADSKScrollingNode.m; sourceTree = "<group>"; };
+		BD72025D19832E7A00DB4AB1 /* JADViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADViewController.h; sourceTree = "<group>"; };
+		BD72025E19832E7A00DB4AB1 /* JADViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADViewController.m; sourceTree = "<group>"; };
+		BD72026019832F8E00DB4AB1 /* JADMainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADMainScene.h; sourceTree = "<group>"; };
+		BD72026119832F8E00DB4AB1 /* JADMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADMainScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,12 @@
 			children = (
 				BD72023A19832DCE00DB4AB1 /* JADAppDelegate.h */,
 				BD72023B19832DCE00DB4AB1 /* JADAppDelegate.m */,
+				BD72025D19832E7A00DB4AB1 /* JADViewController.h */,
+				BD72025E19832E7A00DB4AB1 /* JADViewController.m */,
+				BD72026019832F8E00DB4AB1 /* JADMainScene.h */,
+				BD72026119832F8E00DB4AB1 /* JADMainScene.m */,
+				BD72025A19832E1F00DB4AB1 /* JADSKScrollingNode.h */,
+				BD72025B19832E1F00DB4AB1 /* JADSKScrollingNode.m */,
 				BD72023D19832DCE00DB4AB1 /* Images.xcassets */,
 				BD72023219832DCE00DB4AB1 /* Supporting Files */,
 			);
@@ -241,6 +256,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD72023C19832DCE00DB4AB1 /* JADAppDelegate.m in Sources */,
+				BD72026219832F8E00DB4AB1 /* JADMainScene.m in Sources */,
+				BD72025C19832E1F00DB4AB1 /* JADSKScrollingNode.m in Sources */,
+				BD72025F19832E7A00DB4AB1 /* JADViewController.m in Sources */,
 				BD72023819832DCE00DB4AB1 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
