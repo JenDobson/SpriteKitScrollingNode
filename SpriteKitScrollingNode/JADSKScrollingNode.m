@@ -23,21 +23,6 @@ static const CGFloat kScrollDuration = .3;
 
 @implementation JADSKScrollingNode
 
-/*
--(void)setPosition:(CGPoint)position
-{
-    [super setPosition:position];
-    
-    self.maskNode.position = [self maskPositionForNodePosition:position];
-}
-
--(CGPoint)maskPositionForNodePosition:(CGPoint)position
-{
-    CGPoint oldMaskPosition = self.maskNode.position;
-    return CGPointMake( oldMaskPosition.x,-self.position.y+self.parent.frame.size.height/2);
-}
- */
-
 -(id)initWithSize:(CGSize)size
 {
     self = [super init];
@@ -61,8 +46,6 @@ static const CGFloat kScrollDuration = .3;
 
 -(CGFloat) minYPosition
 {
-    //CGFloat minPosition =(self.scene.frame.size.height - [self calculateAccumulatedFrame].size.height - self.yMargin);
-    //CGFloat minPosition =(self.size.height - [self calculateAccumulatedFrame].size.height);
     CGSize parentSize = self.parent.frame.size;
     
   
@@ -96,14 +79,6 @@ static const CGFloat kScrollDuration = .3;
         _gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
         _gestureRecognizer.delegate = self;
         [view addGestureRecognizer:self.gestureRecognizer];
-        
-      
-        
-        /*
-        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:(CGSize){self.parent.frame.size.width,self.parent.frame.size.height}];
-        
-        self.maskNode.position = CGPointMake(self.parent.frame.size.width/2,self.parent.frame.size.height/2);
-         */
         }
 }
 
@@ -181,8 +156,6 @@ CGPoint mult(const CGPoint v, const CGFloat s) {
         grandParent = self.parent;
     }
     CGPoint touchLocation = [touch locationInNode:grandParent];
-    NSLog(@"parent:%@",grandParent);
-    NSLog(@"%f,%f",touchLocation.x,touchLocation.y);
     
     if (!CGRectContainsPoint(self.parent.frame,touchLocation)){
         return NO;

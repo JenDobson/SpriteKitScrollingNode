@@ -99,15 +99,7 @@ static const CGFloat kScrollingNodeHeight = 300;
     CGPoint location = [touch locationInNode:self];
     SKNode *touchedNode = [self nodeAtPoint:location];
     NSString* nodeName = touchedNode.name;
-    /*
-    if ([touchedNode isKindOfClass:[SKSpriteNode class]]) {
-        SKAction *blueAction = [SKAction colorizeWithColor:[UIColor blueColor] colorBlendFactor:1 duration:.5];
-        SKAction *redAction = [SKAction colorizeWithColor:[UIColor redColor] colorBlendFactor:1 duration:.5];
-        [touchedNode runAction:[SKAction sequence:@[blueAction,redAction]]];
-    }
-    else if ([nodeName isEqualToString:@"OtherSceneNode"])
-        [self.viewController presentFullScrollingScene];
-    */
+    
     if ([nodeName isEqualToString:@"OtherSceneNode"])
         [self.viewController presentFullScrollingScene];
     
