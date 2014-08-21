@@ -10,4 +10,7 @@
 
 @interface JADViewController : UIViewController
 
+-(void)presentFullScrollingScene;
+-(void)presentPartScrollingScene;
+
 @end

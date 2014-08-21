@@ -22,6 +22,7 @@
 		BD72025F19832E7A00DB4AB1 /* JADViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BD72025E19832E7A00DB4AB1 /* JADViewController.m */; };
 		BD72026219832F8E00DB4AB1 /* JADMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BD72026119832F8E00DB4AB1 /* JADMainScene.m */; };
 		BD9F8B5B19855FFC0098D4C6 /* JADSKScrollingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = BD9F8B5A19855FFC0098D4C6 /* JADSKScrollingNode.m */; };
+		BDB4182819A0281E006FA7E1 /* JADPartScrollingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = BDB4182719A0281E006FA7E1 /* JADPartScrollingScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		BD72026119832F8E00DB4AB1 /* JADMainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADMainScene.m; sourceTree = "<group>"; };
 		BD9F8B5919855FFC0098D4C6 /* JADSKScrollingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADSKScrollingNode.h; sourceTree = "<group>"; };
 		BD9F8B5A19855FFC0098D4C6 /* JADSKScrollingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADSKScrollingNode.m; sourceTree = "<group>"; };
+		BDB4182619A0281E006FA7E1 /* JADPartScrollingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JADPartScrollingScene.h; sourceTree = "<group>"; };
+		BDB4182719A0281E006FA7E1 /* JADPartScrollingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JADPartScrollingScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				BD72025E19832E7A00DB4AB1 /* JADViewController.m */,
 				BD72026019832F8E00DB4AB1 /* JADMainScene.h */,
 				BD72026119832F8E00DB4AB1 /* JADMainScene.m */,
+				BDB4182619A0281E006FA7E1 /* JADPartScrollingScene.h */,
+				BDB4182719A0281E006FA7E1 /* JADPartScrollingScene.m */,
 				BD9F8B5919855FFC0098D4C6 /* JADSKScrollingNode.h */,
 				BD9F8B5A19855FFC0098D4C6 /* JADSKScrollingNode.m */,
 				BD72023D19832DCE00DB4AB1 /* Images.xcassets */,
@@ -260,6 +265,7 @@
 				BD72026219832F8E00DB4AB1 /* JADMainScene.m in Sources */,
 				BD72025F19832E7A00DB4AB1 /* JADViewController.m in Sources */,
 				BD72023819832DCE00DB4AB1 /* main.m in Sources */,
+				BDB4182819A0281E006FA7E1 /* JADPartScrollingScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

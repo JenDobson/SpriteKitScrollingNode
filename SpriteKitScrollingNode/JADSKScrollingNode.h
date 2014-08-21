@@ -8,11 +8,13 @@
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface JADSKScrollingNode : SKNode
+//@interface JADSKScrollingNode : SKCropNode <UIGestureRecognizerDelegate>
+@interface JADSKScrollingNode : SKNode <UIGestureRecognizerDelegate>
 
 
-@property (nonatomic) CGFloat yMargin;
+@property (nonatomic) CGSize size;
 
+-(id)initWithSize:(CGSize)size;
 -(void)scrollToTop;
 -(void)scrollToBottom;
 -(void)enableScrollingOnView:(UIView*)view;

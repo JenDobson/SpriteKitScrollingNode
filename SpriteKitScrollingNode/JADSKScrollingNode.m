@@ -14,6 +14,7 @@
 @property (nonatomic) CGFloat minYPosition;
 @property (nonatomic) CGFloat maxYPosition;
 @property (nonatomic, strong) UIPanGestureRecognizer *gestureRecognizer;
+@property (nonatomic) CGFloat yOffset;
 
 @end
 
@@ -22,24 +23,54 @@ static const CGFloat kScrollDuration = .3;
 
 @implementation JADSKScrollingNode
 
--(id)init
+/*
+-(void)setPosition:(CGPoint)position
+{
+    [super setPosition:position];
+    
+    self.maskNode.position = [self maskPositionForNodePosition:position];
+}
+
+-(CGPoint)maskPositionForNodePosition:(CGPoint)position
+{
+    CGPoint oldMaskPosition = self.maskNode.position;
+    return CGPointMake( oldMaskPosition.x,-self.position.y+self.parent.frame.size.height/2);
+}
+ */
+
+-(id)initWithSize:(CGSize)size
 {
     self = [super init];
     
     if (self)
     {
-        _yMargin = 0;
+        _size = size;
+        _yOffset = [self calculateAccumulatedFrame].origin.y;
+       
     }
     return self;
     
 }
 
+-(void)addChild:(SKNode *)node
+{
+    [super addChild:node];
+    _yOffset = [self calculateAccumulatedFrame].origin.y;
+}
+
 
 -(CGFloat) minYPosition
 {
-    CGFloat minPosition =(self.scene.frame.size.height - [self calculateAccumulatedFrame].size.height - self.yMargin);
+    //CGFloat minPosition =(self.scene.frame.size.height - [self calculateAccumulatedFrame].size.height - self.yMargin);
+    //CGFloat minPosition =(self.size.height - [self calculateAccumulatedFrame].size.height);
+    CGSize parentSize = self.parent.frame.size;
+    
+  
+    CGFloat minPosition =(parentSize.height - [self calculateAccumulatedFrame].size.height - _yOffset);
     
     return minPosition;
+    
+    
 }
 
 -(CGFloat) maxYPosition
@@ -63,8 +94,17 @@ static const CGFloat kScrollDuration = .3;
 {
     if (!_gestureRecognizer) {
         _gestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanFrom:)];
+        _gestureRecognizer.delegate = self;
         [view addGestureRecognizer:self.gestureRecognizer];
-    }
+        
+      
+        
+        /*
+        self.maskNode = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:(CGSize){self.parent.frame.size.width,self.parent.frame.size.height}];
+        
+        self.maskNode.position = CGPointMake(self.parent.frame.size.width/2,self.parent.frame.size.height/2);
+         */
+        }
 }
 
 -(void)disableScrollingOnView:(UIView*)view
@@ -77,8 +117,7 @@ static const CGFloat kScrollDuration = .3;
 
 -(void)handlePanFrom:(UIPanGestureRecognizer*)recognizer
 {
-    
-	if (recognizer.state == UIGestureRecognizerStateBegan) {
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
         
         
     } else if (recognizer.state == UIGestureRecognizerStateChanged) {
@@ -94,27 +133,32 @@ static const CGFloat kScrollDuration = .3;
         CGPoint pos = self.position;
         CGPoint p = mult(velocity, kScrollDuration);
         
-        CGPoint newPos = CGPointMake(pos.x + p.x, pos.y - p.y);
+        CGPoint newPos = CGPointMake(pos.x, pos.y - p.y);
         newPos = [self constrainStencilNodesContainerPosition:newPos];
         
         SKAction *moveTo = [SKAction moveTo:newPos duration:kScrollDuration];
+        //SKAction *moveMask = [SKAction moveTo:[self maskPositionForNodePosition:newPos] duration:kScrollDuration];
         [moveTo setTimingMode:SKActionTimingEaseOut];
+        //[moveMask setTimingMode:SKActionTimingEaseOut];
         [self runAction:moveTo];
+        //[self.maskNode runAction:moveMask];
+        
     }
+    
 }
 
 
 
 -(void)panForTranslation:(CGPoint)translation
 {
-    self.position = CGPointMake(0, self.position.y+translation.y);
+    self.position = CGPointMake(self.position.x, self.position.y+translation.y);
 }
 
 - (CGPoint)constrainStencilNodesContainerPosition:(CGPoint)position {
     
     CGPoint retval = position;
     
-    retval.x = 0;
+    retval.x = self.position.x;
     
     retval.y = MAX(retval.y, self.minYPosition);
     retval.y = MIN(retval.y, self.maxYPosition);
@@ -128,5 +172,23 @@ CGPoint mult(const CGPoint v, const CGFloat s) {
 	return CGPointMake(v.x*s, v.y*s);
 }
 
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    SKNode* grandParent = self.parent.parent;
+    
+    if (!grandParent) {
+        grandParent = self.parent;
+    }
+    CGPoint touchLocation = [touch locationInNode:grandParent];
+    NSLog(@"parent:%@",grandParent);
+    NSLog(@"%f,%f",touchLocation.x,touchLocation.y);
+    
+    if (!CGRectContainsPoint(self.parent.frame,touchLocation)){
+        return NO;
+    }
+    
+    return YES;
+}
 
 @end

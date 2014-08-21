@@ -8,12 +8,14 @@
 
 #import "JADViewController.h"
 #import "JADMainScene.h"
+#import "JADPartScrollingScene.h"
 
 #import <SpriteKit/SpriteKit.h>
 
 @interface JADViewController()
 
-@property (nonatomic, strong) SKScene* mainScene;
+@property (nonatomic, strong) JADMainScene* mainScene;
+@property (nonatomic, strong) JADPartScrollingScene* partScrollingScreen;
 
 @end
 
@@ -41,12 +43,29 @@
     CGSize contentSize = CGSizeMake(skView.bounds.size.width,skView.bounds.size.height);
     
     _mainScene = [JADMainScene sceneWithSize:contentSize];
+    _mainScene.viewController = self;
     _mainScene.scaleMode = SKSceneScaleModeAspectFill;
     
-    [skView presentScene:_mainScene];
+    _partScrollingScreen = [JADPartScrollingScene sceneWithSize:contentSize];
+    _partScrollingScreen.viewController = self;
+    _partScrollingScreen.scaleMode = SKSceneScaleModeAspectFill;
+    
+    [self presentFullScrollingScene];
+    //[self presentCropDemoScene];
 }
 
 
+-(void)presentFullScrollingScene
+{
+    SKView* skView = (SKView*)self.view;
+    [skView presentScene:_mainScene];
+}
+-(void)presentPartScrollingScene
+{
+    
+    SKView* skView = (SKView*)self.view;
+    [skView presentScene:_partScrollingScreen];
+}
 
 - (void)didReceiveMemoryWarning
 {

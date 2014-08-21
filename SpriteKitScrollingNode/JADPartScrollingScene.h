@@ -1,15 +1,15 @@
 //
-//  JADMainScene.h
+//  JADPartScrollingScene.h
 //  SpriteKitScrollingNode
 //
-//  Created by Jennifer Dobson on 7/25/14.
+//  Created by Jennifer Dobson on 8/16/14.
 //  Copyright (c) 2014 Jennifer Dobson. All rights reserved.
 //
 
 #import <SpriteKit/SpriteKit.h>
 @class JADViewController;
 
-@interface JADMainScene : SKScene
+@interface JADPartScrollingScene : SKScene
 
 @property (nonatomic, weak) JADViewController* viewController;
 
